@@ -1,25 +1,29 @@
-import Singleton.Singleton;
-import abstract_design.AndroidDevFactory;
-import abstract_design.Employee;
-import abstract_design.EmployeeFactory;
-import abstract_design.WebDevFactory;
-import observer.Display;
-import observer.WeatherForecast;
+import builder.User;
 
 public class Application {
 	public static void main(String[] args) {
 		
+//		------Builder design pattern--------
+
+		User user = new User.UserBuilder()
+				.setEmailId("parth@dev.in")
+				.setId("24")
+				.setUserName("Parth")
+				.Build();
+		
+		System.out.println(user);
+		
 //		------Abstract design pattern--------
 
-		Employee e1 = EmployeeFactory.getEmployee(new AndroidDevFactory());
-		e1.name();
-		int sal1 = e1.Salary();
-		System.out.println(sal1);
-		
-		Employee e2 = EmployeeFactory.getEmployee(new WebDevFactory());
-		e2.name();
-		int sal2 = e2.Salary();
-		System.out.println(sal2);
+//		Employee e1 = EmployeeFactory.getEmployee(new AndroidDevFactory());
+//		e1.name();
+//		int sal1 = e1.Salary();
+//		System.out.println(sal1);
+//		
+//		Employee e2 = EmployeeFactory.getEmployee(new WebDevFactory());
+//		e2.name();
+//		int sal2 = e2.Salary();
+//		System.out.println(sal2);
 
 //		------Factory design pattern--------
 
