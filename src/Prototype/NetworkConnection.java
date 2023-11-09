@@ -18,16 +18,20 @@ public class NetworkConnection implements Cloneable{
 		this.importantData = importantData;
 	}
 	
-	public void loadVeryImportantData() {
+	public void loadVeryImportantData() throws InterruptedException {
 		this.importantData = "Important Data";
+		Thread.sleep(2000);
 	}
 	
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
+	public Object clone() throws CloneNotSupportedException {
 		// TODO Auto-generated method stub
 		return super.clone();
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.ip+": "+this.importantData;
+	}
 
 }

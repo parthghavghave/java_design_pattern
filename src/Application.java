@@ -2,7 +2,7 @@ import Prototype.NetworkConnection;
 import builder.User;
 
 public class Application {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 //		------Prototype design pattern--------
 
@@ -12,6 +12,14 @@ public class Application {
 		networkConnection.setIp("192.168.01.01");
 		networkConnection.loadVeryImportantData();
 		
+		System.out.println(networkConnection);
+		
+		try {
+			NetworkConnection networkConnection2 = (NetworkConnection) networkConnection.clone();;
+			System.out.println(networkConnection2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 //		------Builder design pattern--------
