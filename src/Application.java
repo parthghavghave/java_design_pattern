@@ -1,25 +1,44 @@
 import Prototype.NetworkConnection;
+import Strategy.ShoppingCart;
+import Strategy.paymentStratagy.CreditCardPayment;
+import Strategy.paymentStratagy.DebitCardPayment;
+import Strategy.paymentStratagy.GooglePayPayment;
+import Strategy.paymentStratagy.PaymentStrategy;
 import builder.User;
 
 public class Application {
 	public static void main(String[] args) throws InterruptedException {
 		
+//		------Strategy design pattern--------
+
+		PaymentStrategy creditCardPayment = new CreditCardPayment();
+		ShoppingCart cart1 = new ShoppingCart(creditCardPayment);
+		cart1.checkout(2000);
+		
+		PaymentStrategy debitCardPayment = new DebitCardPayment();
+		ShoppingCart cart2 = new ShoppingCart(debitCardPayment);
+		cart2.checkout(5000);
+		
+		PaymentStrategy googlePayPaymrnt = new GooglePayPayment();
+		ShoppingCart cart3 = new ShoppingCart(googlePayPaymrnt);
+		cart3.checkout(10000);
+		
 //		------Prototype design pattern--------
 
-		System.out.println("Creating obj using prototype design pattern");
-		
-		NetworkConnection networkConnection = new NetworkConnection();
-		networkConnection.setIp("192.168.01.01");
-		networkConnection.loadVeryImportantData();
-		
-		System.out.println(networkConnection);
-		
-		try {
-			NetworkConnection networkConnection2 = (NetworkConnection) networkConnection.clone();;
-			System.out.println(networkConnection2);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		System.out.println("Creating obj using prototype design pattern");
+//		
+//		NetworkConnection networkConnection = new NetworkConnection();
+//		networkConnection.setIp("192.168.01.01");
+//		networkConnection.loadVeryImportantData();
+//		
+//		System.out.println(networkConnection);
+//		
+//		try {
+//			NetworkConnection networkConnection2 = (NetworkConnection) networkConnection.clone();;
+//			System.out.println(networkConnection2);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 		
 //		------Builder design pattern--------
