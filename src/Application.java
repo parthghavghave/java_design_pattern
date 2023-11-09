@@ -1,17 +1,28 @@
+import Prototype.NetworkConnection;
 import builder.User;
 
 public class Application {
 	public static void main(String[] args) {
 		
+//		------Prototype design pattern--------
+
+		System.out.println("Creating obj using prototype design pattern");
+		
+		NetworkConnection networkConnection = new NetworkConnection();
+		networkConnection.setIp("192.168.01.01");
+		networkConnection.loadVeryImportantData();
+		
+		
+		
 //		------Builder design pattern--------
 
-		User user = new User.UserBuilder()
-				.setEmailId("parth@dev.in")
-				.setId("24")
-				.setUserName("Parth")
-				.Build();
-		
-		System.out.println(user);
+//		User user = new User.UserBuilder()
+//				.setEmailId("parth@dev.in")
+//				.setId("24")
+//				.setUserName("Parth")
+//				.Build();
+//		
+//		System.out.println(user);
 		
 //		------Abstract design pattern--------
 
